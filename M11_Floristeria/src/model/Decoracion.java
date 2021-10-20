@@ -20,7 +20,7 @@ public class Decoracion extends Producto{
 	
 	@Override
 	public String toString() {
-		return "Id= " + getId() + "Name:" + getName() + ", Material:" + tipoMaterial + ", Precio:" + getPrice();
+		return "Id=" + getId() + " Name:" + getName() + ", Material:" + tipoMaterial + ", Precio:" + getPrice();
 	}
 	
 	
