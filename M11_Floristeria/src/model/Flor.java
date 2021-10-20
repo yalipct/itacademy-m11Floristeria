@@ -13,7 +13,7 @@ public class Flor extends Producto{
 	
 	@Override
 	public String toString() {
-		return "Id= " + getId() + "Name:" + getName() + ", Color:" + color + ", Precio:" + getPrice();
+		return "Id=" + getId() + " Name:" + getName() + ", Color:" + color + ", Precio:" + getPrice();
 	}
 
 
