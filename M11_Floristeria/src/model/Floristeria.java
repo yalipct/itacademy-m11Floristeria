@@ -64,9 +64,9 @@ public class Floristeria {
 				.distinct()
 				.collect(Collectors.toList());
 		
-		System.out.println("---------------------");
-		System.out.println(" Stock de Productos ");
-		System.out.println("---------------------");
+		System.out.println("------------------------------------------");
+		System.out.println(" Stock de Productos Floristería " + getNomFloristeria());
+		System.out.println("------------------------------------------");
 		
 		//llama al método imprimirProductStock
 		for (String s : productStock) {

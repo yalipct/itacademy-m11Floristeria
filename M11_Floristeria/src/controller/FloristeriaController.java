@@ -5,9 +5,15 @@ import model.Floristeria;
 
 public class FloristeriaController {
 
-	public Floristeria crearFloristeria(String nomFloristeria) throws CampoVacio {
+	public Floristeria crearFloristeria(String nomFloristeria) {
 		
-		return new Floristeria(nomFloristeria);
+		Floristeria floristeria = null;
+		try {
+			floristeria = new Floristeria(nomFloristeria);
+		} catch (CampoVacio e) {
+			System.err.println(e.getMessage());
+		}
+		return floristeria;
 	}
 	
 	public void afegirArbre (Floristeria floristeria, String name, double height, double price) {
@@ -41,6 +47,10 @@ public class FloristeriaController {
 		floristeria.imprimirStock();
 	}	
 	
+	//imprime stock de una floristeria en conceto y un producto en concreto
+	public void getProductStock(Floristeria floristeria, String product) {
+		floristeria.imprimirProductStock(product);
+	}
 	
 }
 
