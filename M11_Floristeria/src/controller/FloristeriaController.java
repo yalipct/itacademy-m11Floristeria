@@ -58,8 +58,12 @@ public class FloristeriaController {
 	}
 	
 	//eliminar producto(lanza excepción si no existe el producto)
-	public void retirarProducto(Floristeria floristeria, int id) throws CampoVacio{
-		floristeria.eliminarProducto(id);
+	public void retirarProducto(Floristeria floristeria, int id){
+		try {
+			floristeria.eliminarProducto(id);
+		} catch (CampoVacio e) {
+			System.err.println(e.getMessage());
+		}
 	}
 	
 }

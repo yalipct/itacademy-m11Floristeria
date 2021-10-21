@@ -69,7 +69,7 @@ public class Floristeria {
 		for (String s : productStock) {
 			imprimirProductStock(s);
 		}
-	}
+	}	
 
 	// muestra el stock de un producto concreto
 	public void imprimirProductStock(String product) {
@@ -99,9 +99,11 @@ public class Floristeria {
 		System.out.println("Valor total del Stock:");
 		System.out.println("------------------------");
 		
-		repository.getAllProducts().stream()
+		Double valor = repository.getAllProducts().stream()
 		.mapToDouble(Producto::getPrice)
 		.sum();
+		
+		System.out.println(valor);
 	}
 
 	//eliminar un producto del repositorypor id
