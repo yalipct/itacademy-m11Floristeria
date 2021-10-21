@@ -42,7 +42,7 @@ public class FloristeriaController {
 		}
 	}	
 	
-	//stock: imprimeix per pantalla tots els arbres, flors i decoració que té la floristeria. 
+	//stock obtener tots els arbres, flors i decoració que té la floristeria. 
 	public void getAllProductsStock(Floristeria floristeria) {
 		floristeria.imprimirStock();
 	}	
@@ -50,6 +50,16 @@ public class FloristeriaController {
 	//imprime stock de una floristeria en conceto y un producto en concreto
 	public void getProductStock(Floristeria floristeria, String product) {
 		floristeria.imprimirProductStock(product);
+	}
+	
+	//valor total del stock de la floristeria
+	public void getStockValue(Floristeria floristeria) {
+		floristeria.totalStockValue();
+	}
+	
+	//eliminar producto(lanza excepción si no existe el producto)
+	public void retirarProducto(Floristeria floristeria, int id) throws CampoVacio{
+		floristeria.eliminarProducto(id);
 	}
 	
 }

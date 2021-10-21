@@ -23,5 +23,11 @@ public class FloristeriaRepository {
 		if(producto == null) throw new CampoVacio("No se ha añadido producto");
 		listaProductos.add(producto);
 	}
+
+	//lanza excepción si el producto no existe
+	public void removeProduct(int id) throws CampoVacio{
+		
+		
+	}
 	
 }
