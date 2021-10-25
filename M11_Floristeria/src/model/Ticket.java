@@ -27,7 +27,6 @@ public class Ticket {
 		this.date = LocalDateTime.now();
 
 	}
-
 	
 	public int getId() {
 		return id;
@@ -46,7 +45,6 @@ public class Ticket {
 		return totalCount;
 
 	}
-
 	
 	@Override
 	public String toString() {
