@@ -22,6 +22,10 @@ public class Decoracion extends Producto{
 	public void setTipoMaterial(Material tipoMaterial) {
 		this.tipoMaterial = tipoMaterial;
 	}
+	
+	public enum Material {
+		MADERA, PLASTICO;
+	}
 
 
 	@Override
