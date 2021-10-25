@@ -19,6 +19,36 @@ public class Ticket {
 	private DateTimeFormatter format = DateTimeFormatter.ofPattern("'FECHA:' dd/MM/yyyy	'HORA:' HH:mm");
 
 	public Ticket(List<Producto> productosTicket) throws CampoVacio {
+
+		if (productosTicket.isEmpty()) {
+			throw new CampoVacio("Debe haber comprado al menos un producto para generar un ticket");
+		}
+		this.id = counter++;
+		this.date = LocalDateTime.now();
+
+	}
+
+	public int getId() {
+
+	/* formato de la fecha */
+	private DateTimeFormatter format = DateTimeFormatter.ofPattern("'FECHA:' dd/MM/yyyy	'HORA:' HH:mm");
+
+	public Ticket(List<Producto> productosTicket) throws CampoVacio {
+		
+		if(productosTicket.isEmpty()) {
+			throw new CampoVacio("Debe haber comprado al menos un producto para generar un ticket");
+		}
+		this.id = counter++;
+		this.date = LocalDateTime.now();
+
+	}
+
+	public int getId() {
+
+	/* formato de la fecha */
+	private DateTimeFormatter format = DateTimeFormatter.ofPattern("'FECHA:' dd/MM/yyyy	'HORA:' HH:mm");
+
+	public Ticket(List<Producto> productosTicket) throws CampoVacio {
 		
 		if(productosTicket.isEmpty()) {
 			throw new CampoVacio("Debe haber comprado al menos un producto para generar un ticket");
@@ -46,6 +76,30 @@ public class Ticket {
 
 	}
 
+	@Override
+	public String toString() {
+		return "Ticket [id=" + id + ", date=" + date.format(format) + ", productosTicket=" + productosTicket
+				+ ", totalCount=" + totalCount + "]";
+		totalCount = 0;
+
+		productosTicket.forEach(p -> totalCount += p.getPrice());
+
+		return totalCount;
+
+	}
+
+	public void imprimirTicket() {
+		productosTicket.forEach(System.out::println);
+	}
+	@Override
+	public String toString() {
+		return "Ticket [id=" + id + ", date=" + date.format(format) + ", productosTicket=" + productosTicket + ", totalCount="
+				+ totalCount + "]";
+	}
+	
+	public void imprimirTicket() {
+		productosTicket.forEach(System.out::println);
+	}
 	@Override
 	public String toString() {
 		return "Ticket [id=" + id + ", date=" + date.format(format) + ", productosTicket=" + productosTicket + ", totalCount="
