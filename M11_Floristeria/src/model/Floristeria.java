@@ -30,7 +30,6 @@ public class Floristeria {
 
 		Arbol arbol = new Arbol(name, height, price);
 		repository.addProduct(arbol);
-		System.out.println("Árbol añadido correctamente");
 
 	}
 
@@ -38,7 +37,6 @@ public class Floristeria {
 
 		Flor flor = new Flor(name, color, price);
 		repository.addProduct(flor);
-		System.out.println("Flor añadida correctamente");
 
 	}
 
@@ -46,7 +44,6 @@ public class Floristeria {
 
 		Decoracion decor = new Decoracion(name, type, price);
 		repository.addProduct(decor);
-		System.out.println("Decoración añadida correctamente");
 
 	}
 
@@ -54,7 +51,7 @@ public class Floristeria {
 	public List<Producto> getAllProducts() {
 		return repository.getAllProducts();
 	}
-
+	
 	// muestra todo el stock de productos
 	public void imprimirStock() {
 
@@ -67,29 +64,19 @@ public class Floristeria {
 
 		// llama al método imprimirProductStock
 		for (String s : productStock) {
-			imprimirProductStock(s);
+			System.out.println(imprimirProductStock(s));
 		}
-	}	
+	}		
+	
 
 	// muestra el stock de un producto concreto
-	public void imprimirProductStock(String product) {
-
-		// variable que almacena que listado a mostrar(ARBOLES/FLORES/DECORACIONES)
-		String listar;
-
-		if (product.equals("Arbol")) {
-			listar = "ARBOLES";
-		} else if (product.equals("Flor")) {
-			listar = "FLORES";
-		} else if (product.equals("Decoracion")) {
-			listar = "DECORACIONES";
-		} else {
-			listar = "";
-		}
-
-		System.out.println("STOCK " + listar + ":");
-		repository.getAllProducts().stream().filter(p -> p.getClass().getSimpleName().equals(product))
-				.forEach(System.out::println);
+	public String imprimirProductStock(String product) {
+		
+		String listaOrdenada = repository.getAllProducts().stream().filter(p -> p.getClass().getSimpleName().equals(product))
+				.map(p -> p.toString() + "\n")
+				.collect(Collectors.joining());
+		
+		return listaOrdenada;
 	}
 	
 	//La floristria té un registre del valor total del stock que te. 
