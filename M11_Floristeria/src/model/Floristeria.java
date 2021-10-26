@@ -2,7 +2,6 @@ package model;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import controller.CampoVacio;
 import controller.MaterialException;
 import model.Decoracion.Material;
@@ -74,17 +73,17 @@ public class Floristeria {
 	// muestra el stock de un producto concreto
 	public String imprimirProductStock(String product) {
 	 String listaOrdenada;
-
-			
-			listaOrdenada = repository.getAllProducts().stream()
-					                  .filter(p -> p.getClass().getSimpleName().equals(product))
-					                  .map(p -> p.toString() + "\n")
-					                  .collect(Collectors.joining());
-			
-			if (listaOrdenada.equals("")) {
-				listaOrdenada = "***No hay productos***";
-			}
-	
+	 
+		if(repository.getAllProducts().isEmpty()) {
+			listaOrdenada = "No hay productos.";
+		}
+		       
+		listaOrdenada = repository.getAllProducts().stream()
+		                                           .filter(p -> p.getClass().getSimpleName().equals(product))
+		                                           .map(p -> p.toString() + "\n")
+		                                           .collect(Collectors.joining());
+		
+		
 		return listaOrdenada;
 	}
 	

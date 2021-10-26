@@ -11,6 +11,7 @@ import model.*;
 import model.Decoracion.Material;
 
 //Mejorar campos de texto vacíos, o cuando se introduce un tipo de dato que no es. 
+//Si meto un producto a eliminar y no existe id -> mensaje. 
 
 public class FloristeriaSwing extends JFrame {
 
@@ -22,6 +23,8 @@ JButton crear = new JButton("Crear");
 JLabel texto = new JLabel ("",SwingConstants.CENTER);
 JTextField text1, text2, text3;
 LaminaBotones laminaBotones;
+//JButton para acceder a nueva app.
+JButton tickets = new JButton("Acceder a App Tickets");
 
 	public FloristeriaSwing(Floristeria floristeria, FloristeriaController controller) {	
 		this.floristeria = floristeria;
@@ -39,12 +42,25 @@ LaminaBotones laminaBotones;
 
         LaminaGeneral laminaGeneral = new LaminaGeneral();
         add(laminaGeneral);
- 
-         
+        
+        tickets.addActionListener(new ActionListener() {   
+			public void actionPerformed(ActionEvent e) {
+				//this.dispose();
+				 actionDone1();
+		    }});
+        
+        add(tickets, BorderLayout.SOUTH);
+        
+        
+               
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
 
+	public void actionDone1() {
+		this.dispose();	
+		FloristeriaTicketView ticketView = new FloristeriaTicketView(floristeria, controller);
+	}
 	
 	class LaminaGeneral extends JPanel {
 		
@@ -174,9 +190,6 @@ LaminaBotones laminaBotones;
 						JOptionPane.showMessageDialog(null, controller.getStockValue(floristeria));
 				    } 	});
 			   
-			   
-			   
-			
             
 			add(añadirArbol);
 			add(añadirFlor);
