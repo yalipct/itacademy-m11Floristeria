@@ -3,7 +3,7 @@ package model;
 import controller.CampoVacio;
 
 public abstract class Producto {
-	
+
 	private int id;
 	private static int COUNTER_PRODUCTS = 1;
 	private String name;	
@@ -31,6 +31,6 @@ public abstract class Producto {
 	public double getPrice() {
 		return price;
 	}
-	
-	
+
+		
 }

@@ -30,7 +30,7 @@ public class Floristeria {
 
 		Arbol arbol = new Arbol(name, height, price);
 		repository.addProduct(arbol);
-		System.out.println("Árbol añadido correctamente");
+		//System.out.println("Árbol añadido correctamente");
 
 	}
 
@@ -38,7 +38,7 @@ public class Floristeria {
 
 		Flor flor = new Flor(name, color, price);
 		repository.addProduct(flor);
-		System.out.println("Flor añadida correctamente");
+		//System.out.println("Flor añadida correctamente");
 
 	}
 
@@ -46,7 +46,7 @@ public class Floristeria {
 
 		Decoracion decor = new Decoracion(name, type, price);
 		repository.addProduct(decor);
-		System.out.println("Decoración añadida correctamente");
+		//System.out.println("Decoración añadida correctamente");
 
 	}
 
@@ -72,38 +72,33 @@ public class Floristeria {
 	}	
 
 	// muestra el stock de un producto concreto
-	public void imprimirProductStock(String product) {
+	public String imprimirProductStock(String product) {
+	 String listaOrdenada;
 
-		// variable que almacena que listado a mostrar(ARBOLES/FLORES/DECORACIONES)
-		String listar;
-
-		if (product.equals("Arbol")) {
-			listar = "ARBOLES";
-		} else if (product.equals("Flor")) {
-			listar = "FLORES";
-		} else if (product.equals("Decoracion")) {
-			listar = "DECORACIONES";
-		} else {
-			listar = "";
-		}
-
-		System.out.println("STOCK " + listar + ":");
-		repository.getAllProducts().stream().filter(p -> p.getClass().getSimpleName().equals(product))
-				.forEach(System.out::println);
+			
+			listaOrdenada = repository.getAllProducts().stream()
+					                  .filter(p -> p.getClass().getSimpleName().equals(product))
+					                  .map(p -> p.toString() + "\n")
+					                  .collect(Collectors.joining());
+			
+			if (listaOrdenada.equals("")) {
+				listaOrdenada = "***No hay productos***";
+			}
+	
+		return listaOrdenada;
 	}
 	
 	//La floristria té un registre del valor total del stock que te. 
-	public void totalStockValue() {
-		
-		System.out.println("------------------------");
-		System.out.println("Valor total del Stock:");
-		System.out.println("------------------------");
+	public String totalStockValue() {
 		
 		Double valor = repository.getAllProducts().stream()
 		.mapToDouble(Producto::getPrice)
 		.sum();
 		
-		System.out.println(valor);
+		String valorString = "------------------------" + "\n" + "Valor total del Stock:" 
+		+ "\n" + "------------------------" + "\n" + Double.toString(valor) + " €";
+	
+		return valorString;
 	}
 
 	//eliminar un producto del repositorypor id

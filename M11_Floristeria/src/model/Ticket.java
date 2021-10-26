@@ -1,22 +1,33 @@
 package model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import controller.CampoVacio;
+
 public class Ticket {
 
-	List<Producto> productosTicket = new ArrayList<Producto>();
-	int id; //
-	static int counter = 1;
-	LocalDate date;
-	double totalCount;
+	private List<Producto> productosTicket = new ArrayList<Producto>();
+	private int id; //
+	private static int counter = 1;
+	private DateTimeFormatter formatoFecha = DateTimeFormatter.ofPattern("'FECHA:' dd/MM/yyyy 'HORA:' HH:mm");
+	private String finalDate;
+	private LocalDateTime date;
+	private double totalCount;
 	
-	   public Ticket() {
-		
+	   public Ticket(List<Producto> productosTicket) throws CampoVacio {
+	
+	   if(productosTicket.isEmpty()) {
+	       throw new CampoVacio("Debe haber comprado al menos un producto para generar un ticket");
+	   }
+	   this.productosTicket = productosTicket;  
 	   this.id = counter++;
-	   this.date = LocalDate.now();   
-	  
+	   
+	   date = date.now();
+	   this.finalDate = date.format(formatoFecha);
+	   
 	   }
 		
 	public int getId () {
@@ -35,6 +46,14 @@ public class Ticket {
 
 	  return totalCount;
 	  
+	}
+
+	
+	//Corregir estética. Quitar array?
+	@Override
+	public String toString() {
+		return "Id = " + id + "Fecha = " + finalDate + "[Productos = " + productosTicket + " ]" + 
+				", totalCount=" + totalCount;
 	}
 
 }

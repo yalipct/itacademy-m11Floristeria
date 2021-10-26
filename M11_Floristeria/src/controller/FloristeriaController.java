@@ -48,13 +48,16 @@ public class FloristeriaController {
 	}	
 	
 	//imprime stock de una floristeria en conceto y un producto en concreto
-	public void getProductStock(Floristeria floristeria, String product) {
-		floristeria.imprimirProductStock(product);
+	public String getProductStock(Floristeria floristeria, String product) {
+		String listaOrdenada = floristeria.imprimirProductStock(product);
+		return listaOrdenada;
+		
 	}
 	
 	//valor total del stock de la floristeria
-	public void getStockValue(Floristeria floristeria) {
-		floristeria.totalStockValue();
+	public String getStockValue(Floristeria floristeria) {
+		String valor = floristeria.totalStockValue();
+		return valor;
 	}
 	
 	//eliminar producto(lanza excepción si no existe el producto)
