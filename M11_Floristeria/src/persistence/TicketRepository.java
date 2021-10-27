@@ -1,8 +1,7 @@
 package persistence;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
+import java.util.*;
+import java.util.stream.Collectors;
 
 import controller.CampoVacio;
 import model.Producto;
@@ -17,10 +16,22 @@ public class TicketRepository {
 		
 	}
 	
-	public List<Ticket> getAllTickets(){
+	public List<Ticket> getTicketsList(){
 		
         return listaTickets;		
 
+	}
+	
+	public String getAllTickets() {
+		
+		String listTickets;
+		
+		listTickets = listaTickets.stream()
+				                    .map(t -> t.toString() + "\n")   
+				                    .collect(Collectors.joining());
+		
+	     return listTickets;	
+	
 	}
 	
 	public void addTicket(Ticket ticket) throws CampoVacio{
@@ -29,28 +40,14 @@ public class TicketRepository {
 		listaTickets.add(ticket);
 	}
 
-	public void removeProduct(int id) throws CampoVacio{		
-
-		Predicate<Ticket> ticket = t -> t.getId() == id;
-		
-		if(listaTickets.stream().anyMatch(ticket)) {
-			
-			listaTickets.removeIf(ticket);
-			System.out.println("Ticket id:" + id + " eliminado correctamente");
-			
-		} else {
-			throw new CampoVacio("No se ha encontrado el ticket con id: " + id);
-		}
-		
-	}
-	
+	/*
 	public double getTotalCount() {
 		totalCount = 0;
 	
 		listaTickets.forEach(t -> totalCount += t.getTotalPrice());
 		
 		return totalCount;
-	}
+	}*/
 	
 	
 	
