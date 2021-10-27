@@ -22,9 +22,9 @@ public class Ticket {
 	       throw new CampoVacio("Debe haber comprado al menos un producto para generar un ticket");
 	   }
 	   this.productosTicket = productosTicket;  
-	   this.id = counter++;
+	   this.id = counter++;	   
 	   
-	   date = date.now();
+	   this.date = LocalDateTime.now();
 	   this.finalDate = date.format(formatoFecha);
 	   
 	   }
