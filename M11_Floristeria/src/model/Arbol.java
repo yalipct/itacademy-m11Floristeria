@@ -17,6 +17,4 @@ public class Arbol extends Producto{
 	}
 
 	private double height;
-	
-	
 }

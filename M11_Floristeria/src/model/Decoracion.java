@@ -35,4 +35,5 @@ public class Decoracion extends Producto{
 	
 	
 	private Material tipoMaterial;
+
 }

@@ -6,7 +6,7 @@ public class Flor extends Producto{
 	
 	public Flor(String name, String color, double price) throws CampoVacio {
 		super(name, price);
-		
+		if(color.equals("")) throw new CampoVacio("Debe introducir un valor en el campo color");
 		this.color = color;
 	}
 	
