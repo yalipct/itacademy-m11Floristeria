@@ -1,23 +1,27 @@
 package view;
 
-import javax.swing.JFrame;
-import controller.CampoVacio;
+
+//eliminar imports que no se usan
+
 import controller.FloristeriaController;
-import model.Arbol;
+import model.Decoracion.Material;
 import model.Floristeria;
-import persistence.FloristeriaRepository;
 
 public class FloristeriaApp {
 
-	public static void main(String[] args) throws CampoVacio {
+	public static void main(String[] args) { //eliminado el throws no es necesario
 
-FloristeriaController controller = new FloristeriaController();
-Floristeria floristeria = controller.crearFloristeria("Floristeria IT Academy");
-controller.afegirArbre(floristeria,"Castaño", 1.40, 1.50);
-controller.afegirArbre(floristeria,"Limonero", 1.20, 1.30);
+		FloristeriaController controller = new FloristeriaController();
+		Floristeria floristeria = controller.crearFloristeria("Floristeria IT Academy");
+		controller.afegirArbre(floristeria, "Castaño", 1.40, 1.50);
+		controller.afegirArbre(floristeria, "Limonero", 1.20, 1.30);
+		controller.afegirFlor(floristeria, "rosa", "roja", 1.50);
+		controller.afegirFlor(floristeria, "rosa", "amarilla", 1.30);
+		controller.afegirDecoracio(floristeria, "mesa", Material.MADERA, 1.50);
+		controller.afegirDecoracio(floristeria, "silla", Material.PLASTICO, 1.30);
 
-FloristeriaSwing Swing = new FloristeriaSwing(floristeria, controller);
+		FloristeriaSwing Swing = new FloristeriaSwing(floristeria, controller);
 
 	}
-	
+
 }
