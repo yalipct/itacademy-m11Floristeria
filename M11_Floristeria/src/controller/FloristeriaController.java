@@ -130,24 +130,7 @@ public class FloristeriaController {
 		}
 		return valorString;
 
-	}
-
+	}	
 	
-	public boolean comprobarId(Floristeria floristeria, int id) {
-
-		boolean idExists = floristeria.getAllProducts().stream().anyMatch(p -> p.getId() == id);
-		return idExists;
-	}
-
-	public int comprobarIdExiste(Floristeria floristeria, int id) {
-
-		int index = -1;
-		for (int i = 0; i < floristeria.getAllProducts().size(); i++) {
-			if (floristeria.getAllProducts().get(i).getId() == id) {
-				index = i;
-			}
-		}
-		return index;
-	} 
 	
 }
