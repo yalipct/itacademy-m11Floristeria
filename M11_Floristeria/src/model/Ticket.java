@@ -50,14 +50,10 @@ public class Ticket {
 
 	//Método para ordenar los productos del array y que aparezcan más legibles en el ticket.	
 	
-	//¿Por qué no con un for normal?
-	// marca [p] como advertencia pq no se usa
 	public String ordenarTicket() {
 		
 		String productosTicket1 = "";
-		//int i = 0;
-
-		//for (Producto p : productosTicket) { 
+		
 		for(int i = 0; i < productosTicket.size(); i++) {
 			
 			if (i == productosTicket.size() - 1) {
@@ -65,9 +61,6 @@ public class Ticket {
 			} else {
 				productosTicket1 += productosTicket.get(i).toString() + "\n";
 			}
-
-			//i++;
-
 		}
 		return productosTicket1;
 	}
