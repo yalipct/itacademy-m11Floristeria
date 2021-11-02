@@ -1,7 +1,7 @@
 # itacademy-m11Floristeria
 
 ## Descripcion 
-Esto es un proyecto de Gestión de Floristerias aplicando la técnica de metodologías ágil de desarrollo de software de trabajo en equipo.
+Esto es un proyecto de GestiÃ³n de Floristerias aplicando la tÃ©cnica de metodologÃ­as Ã¡gil de desarrollo de software de trabajo en equipo.
+Desarrollado con Valeria LavÃ­n.
 
-
-> Para ver los últimos cambios ver el :bookmark_tabs: [changelog](./CHANGELOG.md)
+> Para ver los Ãºltimos cambios ver el :bookmark_tabs: [changelog](./CHANGELOG.md)
