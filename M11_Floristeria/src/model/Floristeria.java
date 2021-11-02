@@ -93,7 +93,6 @@ public class Floristeria {
 	}
 
 	// eliminar un producto del repository por id
-	//eliminado throws CampoVacio
 	public void eliminarProducto(String product, int id) {
 		repository.removeProduct(product, id);
 	}

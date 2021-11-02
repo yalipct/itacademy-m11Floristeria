@@ -15,10 +15,6 @@ import controller.MaterialException;
 import model.*;
 import model.Decoracion.Material;
 
-//Mejorar campos de texto vacíos, o cuando se introduce un tipo de dato que no es. 
-//Si meto un producto a eliminar y no existe id -> mensaje.
-//pasar tipo de producto para eliminar.
-
 public class FloristeriaSwing extends JFrame {
 
 	Container container;
@@ -29,7 +25,7 @@ public class FloristeriaSwing extends JFrame {
 	JLabel texto = new JLabel("", SwingConstants.CENTER);
 	JTextField text1, text2, text3;
 	LaminaBotones laminaBotones;
-//JButton para acceder a nueva app.
+	//JButton para acceder a nueva app.
 	JButton tickets = new JButton("Acceder a App Tickets");
 
 	public FloristeriaSwing(Floristeria floristeria, FloristeriaController controller) {
@@ -122,7 +118,7 @@ public class FloristeriaSwing extends JFrame {
 		JButton retirarDecoracion = new JButton("Eliminar decoración");
 		JButton verValorTotal = new JButton("Ver valor total");
 		JButton verStock = new JButton("Ver stock");
-		JComboBox<String> material = new JComboBox<String>(); // Advertencia debe parametrizarse tipo de dato
+		JComboBox<String> material = new JComboBox<String>(); 
 		MarcoBasico marco;
 		int counter = 0;
 
@@ -263,8 +259,7 @@ public class FloristeriaSwing extends JFrame {
 					public void keyTyped(KeyEvent e) {
 						char validar = e.getKeyChar();
 						
-						if(Character.isDigit(validar)) {
-							//getToolkit().beep();				
+						if(Character.isDigit(validar)) {			
 							e.consume();
 							JOptionPane.showMessageDialog(null, "Ingresar Solo Letras en el campo nombre");
 						}
@@ -310,7 +305,7 @@ public class FloristeriaSwing extends JFrame {
 			public LaminaArbol() {
 
 				texto1.setText("Nombre");
-				texto2.setText("Altura (cm)"); //añadido el (cm)
+				texto2.setText("Altura (m)");
 				texto3.setText("Precio(double)");
 
 				crear.addActionListener(myactionLis);
@@ -369,8 +364,7 @@ public class FloristeriaSwing extends JFrame {
 					public void keyTyped(KeyEvent e) {
 						char validar = e.getKeyChar();
 						
-						if(Character.isDigit(validar)) {
-							//getToolkit().beep();				
+						if(Character.isDigit(validar)) {				
 							e.consume();
 							JOptionPane.showMessageDialog(null, "Ingresar Solo Letras en el campo color");
 						}
@@ -434,11 +428,12 @@ public class FloristeriaSwing extends JFrame {
 				double precio = 0;
 				Material material1 = null;
 
-				if (material.getSelectedItem().equals(Material.MADERA)) {
-					//material1 = material1.MADERA;  cambiarlo hay que acceder de manera estática al enum Material
+				if (material.getSelectedItem().equals(Material.MADERA)) {					
+					
 					material1 = Material.MADERA;
+					
 				} else {
-					 //material1 = material1.PLASTICO;lo mismo
+					
 					material1 = Material.PLASTICO;
 				}
 
@@ -488,9 +483,6 @@ public class FloristeriaSwing extends JFrame {
 				enter.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						
-						/*ya no hace falta pasarle el elim
-						 actionDone(producto, elim);*/
-						
 						actionDone(producto); 
 					}
 				});
@@ -505,8 +497,6 @@ public class FloristeriaSwing extends JFrame {
 				setVisible(true);
 			}
 			
-			//eliminada captura de CampoVacio			
-			/*ya no hace falta pasarle el ActionEvent elim*/
 			private void actionDone(String producto) {
 								
 				int opcion;

@@ -132,8 +132,7 @@ public class FloristeriaController {
 
 	}
 
-	/*Controlar NullPointerException y NumberFormatException*/
-
+	
 	public boolean comprobarId(Floristeria floristeria, int id) {
 
 		boolean idExists = floristeria.getAllProducts().stream().anyMatch(p -> p.getId() == id);

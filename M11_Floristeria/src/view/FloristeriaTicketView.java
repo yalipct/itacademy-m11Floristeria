@@ -12,9 +12,6 @@ import model.Floristeria;
 import model.Producto;
 import model.Ticket;
 import persistence.TicketRepository;
-/*import view.FloristeriaSwing.LaminaGeneral;
-import view.FloristeriaSwing.LaminaBotones.LaminaProductos;
-import view.FloristeriaSwing.LaminaBotones.MarcoBasico;*/
 
 public class FloristeriaTicketView extends JFrame {
 	
@@ -90,13 +87,13 @@ public class FloristeriaTicketView extends JFrame {
 	
 	class laminaCrear extends JPanel {
 			
-		List<Producto> array = floristeria.getAllProducts(); //añadido tipo
-		ListModel<Producto> model; //añadido tipo al ListModel
+		List<Producto> array = floristeria.getAllProducts();
+		ListModel<Producto> model; 
 	    
 		final DefaultListModel<Producto> model2 = new DefaultListModel<Producto>();
 	    final DefaultListModel<Producto> model1 = new DefaultListModel<Producto>();
 	    
-	    JList<Producto> productsList = new JList<Producto>(); //añadido tipo a los JList
+	    JList<Producto> productsList = new JList<Producto>();
 	    JList<Producto> selectedItems = new JList<Producto>();
 
 	    JTextArea stock = new JTextArea();
