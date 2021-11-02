@@ -66,7 +66,7 @@ public class FloristeriaSwing extends JFrame {
 	class LaminaGeneral extends JPanel {
 
 		public LaminaGeneral() {
-			BorderLayout borderLayout = new BorderLayout(); //se puede eliminar, advertencia de que no se usa
+			BorderLayout borderLayout = new BorderLayout();
 			LaminaImagen laminaImagen = new LaminaImagen();
 			add(laminaImagen, BorderLayout.CENTER);
 
